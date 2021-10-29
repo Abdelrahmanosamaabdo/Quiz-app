@@ -8,7 +8,7 @@ class But2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
+      width: 150,
       child: RaisedButton(
         child: Text('Submit answer'),
         onPressed: s,

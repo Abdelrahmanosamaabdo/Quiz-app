@@ -10,6 +10,8 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _MyAppState();
@@ -17,8 +19,18 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final myController = TextEditingController(); //to get data from text box
+
+  @override
+  void dispose() {
+    myController.dispose();
+    super.dispose();
+  } // to clear when not used
+
   int _q = 0;
-  int _a = 0;
+  int _q2 = 0;
+  String _a = ' ';
+
   void _inc() {
     setState(() {
       _q++;
@@ -26,9 +38,18 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _inx() {
-    setState(() {
-      _a++;
-    });
+    setState(
+      () {
+        context:
+        context;
+        builder:
+        (context) {
+          return Text(myController.text);
+        };
+        _a = Text(myController.text).toString();
+        _q2++;
+      },
+    );
   }
 
   @override
@@ -73,23 +94,35 @@ class _MyAppState extends State<MyApp> {
                   width: 500,
                   child: Text(
                     'Please answer the following questions',
+                    style: TextStyle(fontSize: 18),
                     textAlign: TextAlign.center,
                   ),
                 ),
                 Text('  '),
                 Text(
                   quiz[_q + 1],
+                  style: TextStyle(fontSize: 24),
                   textAlign: TextAlign.center,
                 ),
                 Text('  '),
                 But1(_inc),
                 Text('  '),
-                Text('  '),
+                Container(
+                  height: 100,
+                  width: 300,
+                  child: TextField(
+                    controller: myController,
+                    decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Enter your answer'),
+                  ),
+                ),
                 But2(_inx),
                 Text('  '),
                 Text(
-                  '''${quiz[_a]} 
-                  ${answer[_a]}''',
+                  '''${quiz[_q2]}
+                  $_a''',
+                  style: TextStyle(fontSize: 24),
                   textAlign: TextAlign.center,
                 ),
               ],
