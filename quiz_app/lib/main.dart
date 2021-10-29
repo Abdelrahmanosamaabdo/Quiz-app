@@ -25,6 +25,12 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  void _inx() {
+    setState(() {
+      _a++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var quiz = [
@@ -33,8 +39,7 @@ class _MyAppState extends State<MyApp> {
       'Q2: Please enter your age',
       'Q3: Studying in faculty of',
       'Q4: Years of experience',
-      'Q5: What are your skills?',
-      ' '
+      'Q5: What are your skills?'
     ];
     var answer = [
       ' ',
@@ -42,8 +47,7 @@ class _MyAppState extends State<MyApp> {
       '20',
       'Engineering',
       '0',
-      'Drawing and programming',
-      ' '
+      'Drawing and programming'
     ];
 
     return MaterialApp(
@@ -80,13 +84,14 @@ class _MyAppState extends State<MyApp> {
                 Text('  '),
                 But1(_inc),
                 Text('  '),
+                Text('  '),
+                But2(_inx),
+                Text('  '),
                 Text(
-                  '''${quiz[_q]} 
-                  ${answer[_q]}''',
+                  '''${quiz[_a]} 
+                  ${answer[_a]}''',
                   textAlign: TextAlign.center,
                 ),
-                Text('  '),
-                But2(_inc), //
               ],
             ),
           ],
