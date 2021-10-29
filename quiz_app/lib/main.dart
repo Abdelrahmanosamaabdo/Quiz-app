@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
 
   int _q = 0;
   int _q2 = 0;
-  String _a = ' ';
+  List _a = [' ', ' ', ' ', ' ', ' ', ' '];
 
   void _inc() {
     setState(() {
@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
         (context) {
           return Text(myController.text);
         };
-        _a = Text(myController.text).toString();
+        _a[_q2] = Text(myController.text).toString();
         _q2++;
       },
     );
@@ -61,14 +61,6 @@ class _MyAppState extends State<MyApp> {
       'Q3: Studying in faculty of',
       'Q4: Years of experience',
       'Q5: What are your skills?'
-    ];
-    var answer = [
-      ' ',
-      'Abdelrahman',
-      '20',
-      'Engineering',
-      '0',
-      'Drawing and programming'
     ];
 
     return MaterialApp(
@@ -119,11 +111,30 @@ class _MyAppState extends State<MyApp> {
                 ),
                 But2(_inx),
                 Text('  '),
-                Text(
-                  '''${quiz[_q2]}
-                  $_a''',
-                  style: TextStyle(fontSize: 24),
-                  textAlign: TextAlign.center,
+                Row(
+                  children: [
+                    Text(
+                      '''
+                    Name:
+                    Age:
+                    Faculty:
+                    Experience:
+                    Skills:
+                    ''',
+                      style: TextStyle(fontSize: 18),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      '''
+                    ${_a[1]}
+                    ${_a[2]}
+                    ${_a[3]}
+                    ${_a[4]}
+                    ${_a[5]}''',
+                      style: TextStyle(fontSize: 18),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                 ),
               ],
             ),
