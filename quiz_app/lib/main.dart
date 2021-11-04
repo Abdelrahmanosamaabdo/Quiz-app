@@ -1,4 +1,3 @@
-import 'dart:html';
 import 'dart:io';
 import 'but1.dart';
 import 'but2.dart';
@@ -29,7 +28,7 @@ class _MyAppState extends State<MyApp> {
 
   int _q = 0;
   int _q2 = 0;
-  List _a = [' ', ' ', ' ', ' ', ' ', ' '];
+  List _a = [' ', ' ', ' ', ' ', ' '];
 
   void _inc() {
     setState(() {
@@ -71,74 +70,82 @@ class _MyAppState extends State<MyApp> {
           ),
           backgroundColor: Colors.black,
         ),
-        body: Row(
-          children: [
-            Column(
-              children: [
-                Text('   '),
-                Text(
-                  'Hi!',
-                  style: TextStyle(fontSize: 24),
-                  textAlign: TextAlign.center,
-                ),
-                Text(' '),
-                Container(
-                  width: 500,
-                  child: Text(
-                    'Please answer the following questions',
-                    style: TextStyle(fontSize: 18),
+        body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                children: [
+                  Text('   '),
+                  Text(
+                    'Hi!',
+                    style: TextStyle(fontSize: 24),
                     textAlign: TextAlign.center,
                   ),
-                ),
-                Text('  '),
-                Text(
-                  quiz[_q + 1],
-                  style: TextStyle(fontSize: 24),
-                  textAlign: TextAlign.center,
-                ),
-                Text('  '),
-                But1(_inc),
-                Text('  '),
-                Container(
-                  height: 100,
-                  width: 300,
-                  child: TextField(
-                    controller: myController,
-                    decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Enter your answer'),
+                  Text(' '),
+                  Container(
+                    child: Text(
+                      'Please answer the following questions',
+                      style: TextStyle(fontSize: 18),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
-                ),
-                But2(_inx),
-                Text('  '),
-                Row(
-                  children: [
-                    Text(
-                      '''
-                    Name:
-                    Age:
-                    Faculty:
-                    Experience:
-                    Skills:
-                    ''',
-                      style: TextStyle(fontSize: 18),
-                      textAlign: TextAlign.center,
+                  Text('  '),
+                  Text(
+                    quiz[_q + 1],
+                    style: TextStyle(fontSize: 24),
+                    textAlign: TextAlign.center,
+                  ),
+                  Text('  '),
+                  But1(_inc),
+                  Text('  '),
+                  Container(
+                    height: 100,
+                    width: 300,
+                    child: TextField(
+                      controller: myController,
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Enter your answer'),
                     ),
-                    Text(
-                      '''
-                    ${_a[1]}
-                    ${_a[2]}
-                    ${_a[3]}
-                    ${_a[4]}
-                    ${_a[5]}''',
-                      style: TextStyle(fontSize: 18),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
+                  ),
+                  But2(_inx),
+                  Text('  '),
+                  Row(
+                    children: [
+                      Container(
+                        width: 150,
+                        child: Text(
+                          '''
+                        Name:
+                        Age:
+                        Faculty:
+                        Experience:
+                        Skills:
+                        ''',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ),
+                      Container(
+                        width: 200,
+                        child: Text(
+                          '''
+                          ${_a[0]}
+                          ${_a[1]}
+                          ${_a[2]}
+                          ${_a[3]}
+                          ${_a[4]}''',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
         backgroundColor: Colors.grey,
       ),
